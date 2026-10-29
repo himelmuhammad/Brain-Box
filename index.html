@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4faf5">
+  <meta name="description" content="Brain Box by Himel Muhammad — personal development, self-assessment, learning and books.">
+  <title>Brain Box | Himel Muhammad</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./brain.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg:#f5faf6;
+      --white:#ffffff;
+      --green:#286748;
+      --green2:#438b63;
+      --light:#e5f3e8;
+      --text:#20372b;
+      --muted:#708176;
+      --border:#dfebe1;
+      --shadow:0 12px 35px rgba(36,83,55,.07);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter,"Noto Sans Bengali",Arial,sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    .wrap { width:min(1100px,92%); margin:auto; }
+    header {
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid var(--border);
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:blur(12px);
+    }
+    .nav {
+      min-height:76px; display:flex; align-items:center;
+      justify-content:space-between; gap:14px;
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:21px; }
+    .brand img { width:45px; height:45px; }
+    .nav-right { display:flex; align-items:center; gap:10px; }
+    .lang {
+      border:1px solid var(--border); border-radius:12px;
+      padding:9px 13px; background:white; color:var(--green); font-weight:700;
+    }
+    .hero {
+      padding:54px 0 34px;
+      display:grid; grid-template-columns:1.35fr .8fr;
+      align-items:center; gap:35px;
+    }
+    .eyebrow {
+      display:inline-block; background:var(--light); color:var(--green);
+      border-radius:99px; padding:7px 13px; font-size:12px;
+      font-weight:800; letter-spacing:.6px;
+    }
+    h1 { font-size:clamp(36px,6vw,61px); line-height:1.12; letter-spacing:-1.7px; margin:20px 0 15px; }
+    h1 span { color:var(--green2); }
+    .lead { color:var(--muted); font-size:17px; max-width:560px; }
+    .actions { display:flex; gap:11px; flex-wrap:wrap; margin-top:25px; }
+    .btn {
+      display:inline-flex; justify-content:center; align-items:center; gap:8px;
+      border:1px solid var(--border); border-radius:13px;
+      padding:12px 17px; font-weight:750; background:white;
+    }
+    .btn.primary { background:var(--green); color:white; border-color:var(--green); }
+    .btn:hover, .tile:hover { transform:translateY(-2px); }
+    .hero-art {
+      min-height:280px; display:grid; place-items:center;
+      background:linear-gradient(145deg,#e4f5e8,#ffffff 65%,#e8f0ff);
+      border:1px solid var(--border); border-radius:30px; box-shadow:var(--shadow);
+      overflow:hidden; position:relative;
+    }
+    .hero-art img { width:170px; max-width:65%; position:relative; z-index:1; }
+    .orb { position:absolute; width:190px; height:190px; border-radius:50%; background:#d1eed9; filter:blur(2px); }
+    .section { padding:32px 0; }
+    .section-head { margin-bottom:19px; }
+    .section-head h2 { margin:0; font-size:27px; letter-spacing:-.5px; }
+    .section-head p { margin:5px 0 0; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+    .tile {
+      transition:transform .2s ease;
+      background:white; border:1px solid var(--border);
+      border-radius:20px; padding:22px; box-shadow:var(--shadow);
+      min-height:170px; display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .tile .emoji { font-size:27px; margin-bottom:12px; }
+    .tile h3 { margin:0 0 5px; font-size:18px; }
+    .tile p { margin:0; color:var(--muted); font-size:14px; }
+    .tile .arrow { color:var(--green2); margin-top:auto; padding-top:12px; font-weight:800; }
+    .panel {
+      background:white; border:1px solid var(--border);
+      border-radius:23px; padding:24px; box-shadow:var(--shadow);
+    }
+    .assessment { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .question { border-bottom:1px solid var(--border); padding:13px 0; }
+    .question p { margin:0 0 8px; font-weight:650; }
+    .question select {
+      width:100%; padding:11px; border-radius:10px;
+      border:1px solid var(--border); background:#fbfefb; color:var(--text);
+    }
+    #result { margin-top:14px; padding:13px; background:var(--light); border-radius:12px; }
+    .book-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .book { background:#f0f8f1; border-radius:16px; padding:18px; }
+    .book .book-icon { font-size:30px; }
+    .book h3 { margin:8px 0 5px; font-size:16px; }
+    .book p { margin:0 0 12px; color:var(--muted); font-size:13px; }
+    .book a { color:var(--green); font-weight:750; }
+    .note { font-size:13px; color:var(--muted); }
+    footer { margin-top:30px; padding:28px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center; }
+    @media(max-width:740px) {
+      .hero { grid-template-columns:1fr; padding-top:35px; gap:22px; }
+      .hero-art { min-height:210px; }
+      .hero-art img { width:125px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .tile { padding:16px; min-height:160px; }
+      .assessment { grid-template-columns:1fr; }
+      .book-list { grid-template-columns:1fr; }
+      .section-head h2 { font-size:24px; }
+      .brand { font-size:18px; }
+    }
+    @media(max-width:360px) {
+      .grid { grid-template-columns:1fr; }
+      .brand img { width:36px; height:36px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">
+      <img src="./brain.svg" alt="Brain Box multicolor brain logo">
+      <span>Brain Box</span>
+    </a>
+    <div class="nav-right">
+      <button class="lang" id="langBtn" type="button">বাংলা</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="home">
+    <div>
+      <span class="eyebrow" data-en="YOUR PERSONAL GROWTH SPACE" data-bn="আপনার ব্যক্তিগত উন্নয়নের ঠিকানা">YOUR PERSONAL GROWTH SPACE</span>
+      <h1 data-en-html="Grow Your Mind.<br><span>Transform Your Life.</span>" data-bn-html="মনকে গড়ুন।<br><span>জীবন বদলান।</span>">Grow Your Mind.<br><span>Transform Your Life.</span></h1>
+      <p class="lead" data-en="Learn, reflect and grow with Himel Muhammad. Explore helpful videos, self-assessments, books and coaching connections in one place." data-bn="হিমেল মুহাম্মদের সঙ্গে শিখুন, নিজেকে জানুন এবং এগিয়ে যান। ভিডিও, আত্মমূল্যায়ন, বই ও কোচিং যোগাযোগ—সব এক জায়গায়।">Learn, reflect and grow with Himel Muhammad. Explore helpful videos, self-assessments, books and coaching connections in one place.</p>
+      <div class="actions">
+        <a class="btn primary" href="#tools" data-en="Explore Brain Box →" data-bn="Brain Box দেখুন →">Explore Brain Box →</a>
+        <a class="btn" href="https://himelmuhammad.github.io/" target="_blank" rel="noopener" data-en="My Website ↗" data-bn="আমার ওয়েবসাইট ↗">My Website ↗</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="orb"></div>
+      <img src="./brain.svg" alt="Colorful Brain Box brain icon">
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="section-head">
+      <h2 data-en="Your Growth Toolkit" data-bn="আপনার উন্নয়নের টুলকিট">Your Growth Toolkit</h2>
+      <p data-en="Everything you need to learn and connect." data-bn="শেখা ও যোগাযোগের প্রয়োজনীয় সুবিধা এক জায়গায়।">Everything you need to learn and connect.</p>
+    </div>
+    <div class="grid">
+      <a class="tile" href="https://himelmuhammad.github.io/" target="_blank" rel="noopener">
+        <span class="emoji">🌐</span><h3 data-en="My Website" data-bn="আমার ওয়েবসাইট">My Website</h3>
+        <p data-en="Discover my work and coaching approach." data-bn="আমার কাজ ও কোচিং পদ্ধতি জানুন।">Discover my work and coaching approach.</p><span class="arrow">↗</span>
+      </a>
+      <a class="tile" href="https://www.youtube.com/results?search_query=Himel+Muhammad+Personal+Development" target="_blank" rel="noopener">
+        <span class="emoji">▶️</span><h3>YouTube</h3>
+        <p data-en="Videos and personal growth lessons." data-bn="ভিডিও ও ব্যক্তিগত উন্নয়নের শিক্ষা।">Videos and personal growth lessons.</p><span class="arrow">↗</span>
+      </a>
+      <a class="tile" href="#assessment">
+        <span class="emoji">🧠</span><h3 data-en="Assessment Tool" data-bn="আত্মমূল্যায়ন">Assessment Tool</h3>
+        <p data-en="Reflect on your mindset and habits." data-bn="নিজের চিন্তা ও অভ্যাস সম্পর্কে জানুন।">Reflect on your mindset and habits.</p><span class="arrow" data-en="Start →" data-bn="শুরু করুন →">Start →</span>
+      </a>
+      <a class="tile" href="#books">
+        <span class="emoji">📚</span><h3 data-en="Book Library" data-bn="বইয়ের লাইব্রেরি">Book Library</h3>
+        <p data-en="Explore books and reading resources." data-bn="বই ও পড়ার উপকরণ দেখুন।">Explore books and reading resources.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
+      </a>
+      <a class="tile" href="https://zoom.us/join" target="_blank" rel="noopener">
+        <span class="emoji">📹</span><h3 data-en="Book a Zoom Session" data-bn="Zoom সেশন বুক করুন">Book a Zoom Session</h3>
+        <p data-en="Join a meeting using your session link." data-bn="আপনার সেশনের লিংক দিয়ে মিটিংয়ে যোগ দিন।">Join a meeting using your session link.</p><span class="arrow">↗</span>
+      </a>
+      <a class="tile" href="mailto:coachhimelmuhammad@gmail.com">
+        <span class="emoji">✉️</span><h3 data-en="Email Himel" data-bn="ইমেইল করুন">Email Himel</h3>
+        <p data-en="Get in touch for coaching enquiries." data-bn="কোচিং বিষয়ে যোগাযোগ করুন।">Get in touch for coaching enquiries.</p><span class="arrow">↗</span>
+      </a>
+      <a class="tile" href="https://wa.me/" target="_blank" rel="noopener">
+        <span class="emoji">💬</span><h3 data-en="WhatsApp" data-bn="হোয়াটসঅ্যাপ">WhatsApp</h3>
+        <p data-en="Connect directly on WhatsApp." data-bn="সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করুন।">Connect directly on WhatsApp.</p><span class="arrow" data-en="Connect →" data-bn="যোগাযোগ →">Connect →</span>
+      </a>
+    </div>
+    <p class="note" data-en="Note: Add your actual WhatsApp number and Zoom booking link before sharing the app." data-bn="নোট: অ্যাপ শেয়ার করার আগে আপনার আসল WhatsApp নম্বর ও Zoom বুকিং লিংক যোগ করুন।">Note: Add your actual WhatsApp number and Zoom booking link before sharing the app.</p>
+  </section>
+
+  <section class="section" id="assessment">
+    <div class="section-head">
+      <h2 data-en="Self-Growth Assessment" data-bn="নিজের উন্নতি যাচাই">Self-Growth Assessment</h2>
+      <p data-en="A simple reflection exercise. Your answers stay in this page." data-bn="নিজেকে বোঝার একটি সহজ অনুশীলন। আপনার উত্তর এই পেজেই থাকে।">A simple reflection exercise. Your answers stay in this page.</p>
+    </div>
+    <div class="panel assessment">
+      <div>
+        <h3 data-en="Check in with yourself" data-bn="নিজের অবস্থা বুঝে নিন">Check in with yourself</h3>
+        <p class="note" data-en="Rate each statement from 1 (not yet) to 5 (strongly agree)." data-bn="প্রতিটি বক্তব্যে ১ (এখনো নয়) থেকে ৫ (সম্পূর্ণ একমত) নির্বাচন করুন।">Rate each statement from 1 (not yet) to 5 (strongly agree).</p>
+        <div id="questions"></div>
+        <button class="btn primary" id="scoreBtn" type="button" data-en="View My Reflection" data-bn="আমার ফলাফল দেখুন">View My Reflection</button>
+      </div>
+      <div>
+        <h3 data-en="Your reflection" data-bn="আপনার ফলাফল">Your reflection</h3>
+        <div id="result" aria-live="polite" data-en="Complete the questions to see a reflection." data-bn="ফলাফল দেখতে প্রশ্নগুলোর উত্তর দিন।">Complete the questions to see a reflection.</div>
+        <p class="note" data-en="This is an informal self-reflection tool, not a clinical or psychological diagnosis." data-bn="এটি সাধারণ আত্মমূল্যায়নের টুল; চিকিৎসাগত বা মনস্তাত্ত্বিক রোগ নির্ণয় নয়।">This is an informal self-reflection tool, not a clinical or psychological diagnosis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="books">
+    <div class="section-head">
+      <h2 data-en="Book Library" data-bn="বইয়ের লাইব্রেরি">Book Library</h2>
+      <p data-en="Your reading corner for continuous growth." data-bn="নিয়মিত শেখার জন্য আপনার বইয়ের জায়গা।">Your reading corner for continuous growth.</p>
+    </div>
+    <div class="book-list">
+      <article class="book">
+        <div class="book-icon">🌱</div>
+        <h3 data-en="Personal Growth" data-bn="ব্যক্তিগত উন্নয়ন">Personal Growth</h3>
+        <p data-en="Add your own book or an authorised PDF here." data-bn="এখানে নিজের বই বা অনুমতিপ্রাপ্ত PDF যোগ করুন।">Add your own book or an authorised PDF here.</p>
+        <a href="mailto:coachhimelmuhammad@gmail.com" data-en="Ask about reading resources ↗" data-bn="বইয়ের বিষয়ে জানতে ↗">Ask about reading resources ↗</a>
+      </article>
+      <article class="book">
+        <div class="book-icon">💚</div>
+        <h3 data-en="Confidence & Mindset" data-bn="আত্মবিশ্বাস ও মানসিকতা">Confidence & Mindset</h3>
+        <p data-en="Build confidence through learning and practice." data-bn="শেখা ও অনুশীলনের মাধ্যমে আত্মবিশ্বাস বাড়ান।">Build confidence through learning and practice.</p>
+        <a href="https://himelmuhammad.github.io/" target="_blank" rel="noopener" data-en="Explore resources ↗" data-bn="উপকরণ দেখুন ↗">Explore resources ↗</a>
+      </article>
+      <article class="book">
+        <div class="book-icon">🎯</div>
+        <h3 data-en="Goals & Habits" data-bn="লক্ষ্য ও অভ্যাস">Goals & Habits</h3>
+        <p data-en="Add your guides, worksheets or PDF files." data-bn="আপনার গাইড, ওয়ার্কশিট বা PDF ফাইল যোগ করুন।">Add your guides, worksheets or PDF files.</p>
+        <a href="mailto:coachhimelmuhammad@gmail.com" data-en="Request a resource ↗" data-bn="উপকরণ চাইতে ↗">Request a resource ↗</a>
+      </article>
+    </div>
+    <p class="note" data-en="The library is a starter layout. Actual PDF books will be added in the next setup step." data-bn="এটি লাইব্রেরির প্রাথমিক কাঠামো। পরের ধাপে আসল PDF বই যোগ করা হবে।">The library is a starter layout. Actual PDF books will be added in the next setup step.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Brain Box</strong> · Himel Muhammad
+    <div data-en="Learn · Grow · Achieve" data-bn="শিখুন · বেড়ে উঠুন · এগিয়ে যান">Learn · Grow · Achieve</div>
+    <p class="note">© <span id="year"></span> Himel Muhammad</p>
+  </div>
+</footer>
+
+<script>
+  let language = "en";
+
+  const translations = {
+    en: [
+      "I feel confident in my abilities.",
+      "I can recognise limiting beliefs.",
+      "I set clear personal goals.",
+      "I take small steps toward my goals."
+    ],
+    bn: [
+      "আমি নিজের সক্ষমতার ওপর আত্মবিশ্বাসী।",
+      "আমি নিজের সীমাবদ্ধ বিশ্বাস চিনতে পারি।",
+      "আমি ব্যক্তিগত লক্ষ্য পরিষ্কারভাবে নির্ধারণ করি।",
+      "আমি লক্ষ্যের দিকে ছোট ছোট পদক্ষেপ নিই।"
+    ]
+  };
+
+  function renderQuestions() {
+    const root = document.getElementById("questions");
+    root.innerHTML = "";
+    translations[language].forEach((question, index) => {
+      const row = document.createElement("div");
+      row.className = "question";
+      const label = document.createElement("p");
+      label.textContent = (index + 1) + ". " + question;
+      const select = document.createElement("select");
+      select.id = "q" + index;
+      select.setAttribute("aria-label", question);
+      const prompt = document.createElement("option");
+      prompt.value = "";
+      prompt.textContent = language === "en" ? "Choose 1–5" : "১–৫ নির্বাচন করুন";
+      select.appendChild(prompt);
+      for (let i = 1; i <= 5; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        select.appendChild(option);
+      }
+      row.append(label, select);
+      root.appendChild(row);
+    });
+  }
+
+  function setLanguage(next) {
+    language = next;
+    document.documentElement.lang = next;
+    document.querySelectorAll("[data-en]").forEach(el => {
+      el.textContent = el.dataset[next];
+    });
+    document.querySelectorAll("[data-en-html]").forEach(el => {
+      el.innerHTML = el.dataset[next + "Html"];
+    });
+    document.getElementById("langBtn").textContent =
+      next === "en" ? "বাংলা" : "English";
+    document.getElementById("result").textContent =
+      next === "en"
+        ? "Complete the questions to see a reflection."
+        : "ফলাফল দেখতে প্রশ্নগুলোর উত্তর দিন।";
+    renderQuestions();
+  }
+
+  document.getElementById("langBtn").addEventListener("click", () => {
+    setLanguage(language === "en" ? "bn" : "en");
+  });
+
+  document.getElementById("scoreBtn").addEventListener("click", () => {
+    const answers = [0, 1, 2, 3].map(i =>
+      Number(document.getElementById("q" + i).value)
+    );
+    const result = document.getElementById("result");
+    if (answers.some(value => value < 1 || value > 5)) {
+      result.textContent = language === "en"
+        ? "Please answer all four questions first."
+        : "আগে চারটি প্রশ্নেরই উত্তর দিন।";
+      return;
+    }
+    const score = answers.reduce((sum, value) => sum + value, 0);
+    if (language === "en") {
+      result.textContent = score >= 17
+        ? "Your answers show a positive starting point. Keep practising and setting meaningful goals."
+        : score >= 11
+        ? "You have areas to build on. Choose one small, realistic action to practise this week."
+        : "Start gently: identify one area you want to improve and choose one manageable next step.";
+    } else {
+      result.textContent = score >= 17
+        ? "আপনার উত্তর ইতিবাচক শুরুর ইঙ্গিত দেয়। নিয়মিত অনুশীলন করুন এবং অর্থবহ লক্ষ্য নির্ধারণ করুন।"
+        : score >= 11
+        ? "আপনার উন্নতির কিছু জায়গা আছে। এই সপ্তাহে অনুশীলনের জন্য একটি ছোট বাস্তবসম্মত কাজ বেছে নিন।"
+        : "ধীরে শুরু করুন: উন্নতির একটি ক্ষেত্র বেছে নিয়ে ছোট একটি পদক্ষেপ নিন।";
+    }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+  renderQuestions();
+
+  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
