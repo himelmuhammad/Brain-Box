@@ -1,0 +1,22 @@
+
+{
+  "id": "./",
+  "name": "Brain Box - Himel Muhammad",
+  "short_name": "Brain Box",
+  "description": "Personal Development and Life Coaching",
+  "lang": "en",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5faf6",
+  "theme_color": "#f5faf6",
+  "icons": [
+    {
+      "src": "./brain.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
