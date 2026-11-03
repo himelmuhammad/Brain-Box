@@ -127,14 +127,53 @@
       .grid { grid-template-columns:1fr; }
       .brand img { width:36px; height:36px; }
     }
-  </style>
+  
+    /* HIMEL MUHAMMAD website-aligned visual identity */
+    :root {
+      --bg:#ffffff;
+      --white:#ffffff;
+      --green:#167F89;
+      --green2:#167F89;
+      --light:#eaf0f5;
+      --text:#18304f;
+      --muted:#5d6b7e;
+      --border:rgba(24,48,79,.12);
+      --shadow:0 10px 28px rgba(24,48,79,.055);
+    }
+    body { background:var(--bg); color:var(--text); line-height:1.7; }
+    header { background:rgba(255,255,255,.96); border-bottom:1px solid var(--border); }
+    .brand { letter-spacing:1.2px; }
+    .lang { background:var(--green); color:#fff; border:0; border-radius:999px; }
+    .hero { padding:74px 0 54px; gap:55px; }
+    .eyebrow { background:var(--light); color:var(--green); border-radius:5px; letter-spacing:1.5px; }
+    h1 { letter-spacing:-2px; }
+    h1 span { color:var(--green); }
+    .hero-art { background:linear-gradient(145deg,#f4f7fa,#ffffff 70%); border-radius:18px; box-shadow:var(--shadow); }
+    .orb { background:#dcebed; }
+    .btn { border-radius:9px; box-shadow:none; }
+    .btn.primary { background:var(--green); border-color:var(--green); }
+    .section { padding:48px 0; }
+    .section-head { max-width:680px; margin-bottom:28px; }
+    .section-head h2 { font-size:clamp(29px,4vw,43px); letter-spacing:-.8px; }
+    .grid { gap:18px; }
+    .tile { border-radius:13px; box-shadow:none; background:var(--panel, #f4f7fa); border-color:var(--border); }
+    .tile .arrow, .book a { color:var(--green); }
+    .panel { border-radius:13px; box-shadow:none; background:#f4f7fa; }
+    .book { background:#f4f7fa; border:1px solid var(--border); border-radius:13px; }
+    #result { background:#eaf0f5; }
+    footer { border-color:var(--border); }
+    @media(max-width:740px) {
+      .hero { padding-top:50px; gap:30px; }
+      .section { padding:38px 0; }
+    }
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#home">
       <img src="./brain.svg" alt="Brain Box multicolor brain logo">
-      <span>Brain Box</span>
+      <span>HIMEL <small style="font-size:12px;font-weight:600;letter-spacing:.3px;color:#5d6b7e;">Muhammad · Brain Box</small></span>
     </a>
     <div class="nav-right">
       <button class="lang" id="langBtn" type="button">বাংলা</button>
@@ -194,7 +233,7 @@
         <p data-en="Connect directly on WhatsApp." data-bn="সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করুন।">Connect directly on WhatsApp.</p><span class="arrow" data-en="Connect →" data-bn="যোগাযোগ →">Connect →</span>
       </a>
     </div>
-    <p class="note" data-en="Note: Add your actual WhatsApp number and Zoom booking link before sharing the app." data-bn="নোট: অ্যাপ শেয়ার করার আগে আপনার আসল WhatsApp নম্বর ও Zoom বুকিং লিংক যোগ করুন।">Note: Add your actual WhatsApp number and Zoom booking link before sharing the app.</p>
+    <p class="note" data-en="Your coaching and contact links are ready to use." data-bn="আপনার কোচিং ও যোগাযোগের লিংকগুলো ব্যবহার করার জন্য প্রস্তুত।">Note: Add your actual WhatsApp number and Zoom booking link before sharing the app.</p>
   </section>
 
   <section class="section" id="assessment">
