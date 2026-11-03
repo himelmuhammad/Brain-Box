@@ -166,6 +166,12 @@
       .hero { padding-top:50px; gap:30px; }
       .section { padding:38px 0; }
     }
+    .brand-banner{margin:24px auto 10px;overflow:hidden;border-radius:18px;background:#eaf0f5;box-shadow:var(--shadow)}
+    .brand-banner>img{display:block;width:100%;max-height:440px;object-fit:cover;object-position:center 42%}
+    .banner-quote{padding:18px 20px;text-align:center;background:#07543e;color:#fff}
+    .banner-quote p{margin:0 auto 6px;max-width:900px;font-size:clamp(18px,2.5vw,28px);font-weight:750;line-height:1.55}
+    .banner-quote span{color:#d8f5df;font-weight:700}
+    @media(max-width:740px){.brand-banner{margin-top:14px;border-radius:12px}.brand-banner>img{max-height:270px}.banner-quote{padding:13px 12px}}
 </style>
 </head>
 <body>
@@ -182,6 +188,14 @@
 </header>
 
 <main class="wrap">
+  <section class="brand-banner" aria-label="Himel Muhammad banner">
+    <img src="./himel-banner.jpg" alt="Himel Muhammad sitting in a garden">
+    <div class="banner-quote">
+      <p data-en="I am Himel, as essential as gandharaj, bhringraj, coconut, olive and castor oils." data-bn="আমি একজন হিমেল, যেমন প্রয়োজন গন্ধরাজ- ভৃঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।">আমি একজন হিমেল, যেমন প্রয়োজন গন্ধরাজ- ভৃঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।</p>
+      <span>— Himel Muhammad —</span>
+    </div>
+  </section>
+
   <section class="hero" id="home">
     <div>
       <span class="eyebrow" data-en="YOUR PERSONAL GROWTH SPACE" data-bn="আপনার ব্যক্তিগত উন্নয়নের ঠিকানা">YOUR PERSONAL GROWTH SPACE</span>
@@ -212,6 +226,14 @@
         <span class="emoji">▶️</span><h3>YouTube</h3>
         <p data-en="Videos and personal growth lessons." data-bn="ভিডিও ও ব্যক্তিগত উন্নয়নের শিক্ষা।">Videos and personal growth lessons.</p><span class="arrow">↗</span>
       </a>
+      <a class="tile" href="#physical-exercise">
+        <span class="emoji">🏃</span><h3 data-en="Physical Exercise" data-bn="শারীরিক ব্যায়াম">Physical Exercise</h3>
+        <p data-en="Build healthy daily movement habits." data-bn="প্রতিদিনের সুস্থ ব্যায়ামের অভ্যাস গড়ুন।">Build healthy daily movement habits.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
+      </a>
+      <a class="tile" href="#spiritual-exercise">
+        <span class="emoji">🧘</span><h3 data-en="Spiritual Exercise" data-bn="আধ্যাত্মিক অনুশীলন">Spiritual Exercise</h3>
+        <p data-en="Practice reflection, gratitude and inner calm." data-bn="আত্মপর্যালোচনা, কৃতজ্ঞতা ও অন্তরের প্রশান্তি চর্চা করুন।">Practice reflection, gratitude and inner calm.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
+      </a>
       <a class="tile" href="#assessment">
         <span class="emoji">🧠</span><h3 data-en="Assessment Tool" data-bn="আত্মমূল্যায়ন">Assessment Tool</h3>
         <p data-en="Reflect on your mindset and habits." data-bn="নিজের চিন্তা ও অভ্যাস সম্পর্কে জানুন।">Reflect on your mindset and habits.</p><span class="arrow" data-en="Start →" data-bn="শুরু করুন →">Start →</span>
@@ -234,6 +256,24 @@
       </a>
     </div>
     <p class="note" data-en="Your coaching and contact links are ready to use." data-bn="আপনার কোচিং ও যোগাযোগের লিংকগুলো ব্যবহার করার জন্য প্রস্তুত।">Note: Add your actual WhatsApp number and Zoom booking link before sharing the app.</p>
+  </section>
+
+  <section class="section" id="physical-exercise">
+    <div class="section-head"><h2 data-en="Physical Exercise" data-bn="শারীরিক ব্যায়াম">Physical Exercise</h2><p data-en="A gentle starter routine. Adapt it to your ability." data-bn="সহজ প্রাথমিক রুটিন। নিজের সক্ষমতা অনুযায়ী করুন।">A gentle starter routine. Adapt it to your ability.</p></div>
+    <div class="book-list">
+      <article class="book"><div class="book-icon">🚶</div><h3 data-en="Walking" data-bn="হাঁটা">Walking</h3><p data-en="Begin with a comfortable 10–20 minute walk." data-bn="স্বাচ্ছন্দ্য অনুযায়ী ১০–২০ মিনিট হাঁটা দিয়ে শুরু করুন।">Begin with a comfortable 10–20 minute walk.</p></article>
+      <article class="book"><div class="book-icon">🤸</div><h3 data-en="Stretching" data-bn="স্ট্রেচিং">Stretching</h3><p data-en="Try gentle neck, shoulder and leg stretches." data-bn="ঘাড়, কাঁধ ও পায়ের হালকা স্ট্রেচিং করুন।">Try gentle neck, shoulder and leg stretches.</p></article>
+      <article class="book"><div class="book-icon">💪</div><h3 data-en="Strength Basics" data-bn="শক্তিবর্ধক ব্যায়াম">Strength Basics</h3><p data-en="Try comfortable chair squats or wall push-ups." data-bn="সক্ষমতা অনুযায়ী চেয়ার স্কোয়াট বা দেয়ালে পুশ-আপ করুন।">Try comfortable chair squats or wall push-ups.</p></article>
+    </div>
+    <p class="note" data-en="Stop if you feel pain, dizziness or unusual breathlessness. Seek medical advice if you have health concerns." data-bn="ব্যথা, মাথা ঘোরা বা অস্বাভাবিক শ্বাসকষ্ট হলে থামুন। স্বাস্থ্যগত সমস্যা থাকলে চিকিৎসকের পরামর্শ নিন।">Stop if you feel pain, dizziness or unusual breathlessness. Seek medical advice if you have health concerns.</p>
+  </section>
+  <section class="section" id="spiritual-exercise">
+    <div class="section-head"><h2 data-en="Spiritual Exercise" data-bn="আধ্যাত্মিক অনুশীলন">Spiritual Exercise</h2><p data-en="Daily practices for gratitude, reflection and purpose." data-bn="কৃতজ্ঞতা, আত্মপর্যালোচনা ও জীবনের উদ্দেশ্য নিয়ে দৈনিক চর্চা।">Daily practices for gratitude, reflection and purpose.</p></div>
+    <div class="book-list">
+      <article class="book"><div class="book-icon">🙏</div><h3 data-en="Gratitude" data-bn="কৃতজ্ঞতা">Gratitude</h3><p data-en="Write three things you are grateful for today." data-bn="আজ যে তিনটি বিষয়ের জন্য কৃতজ্ঞ, সেগুলো লিখুন।">Write three things you are grateful for today.</p></article>
+      <article class="book"><div class="book-icon">🌿</div><h3 data-en="Quiet Reflection" data-bn="নীরব আত্মপর্যালোচনা">Quiet Reflection</h3><p data-en="Spend five quiet minutes observing your thoughts." data-bn="পাঁচ মিনিট নীরবে নিজের চিন্তাগুলো লক্ষ্য করুন।">Spend five quiet minutes observing your thoughts.</p></article>
+      <article class="book"><div class="book-icon">💚</div><h3 data-en="Kindness & Purpose" data-bn="সদয় আচরণ ও উদ্দেশ্য">Kindness & Purpose</h3><p data-en="Choose one kind action and one meaningful intention." data-bn="একটি ভালো কাজ ও একটি অর্থবহ উদ্দেশ্য ঠিক করুন।">Choose one kind action and one meaningful intention.</p></article>
+    </div>
   </section>
 
   <section class="section" id="assessment">
