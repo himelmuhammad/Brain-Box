@@ -172,6 +172,16 @@
     .banner-quote p{margin:0 auto 6px;max-width:900px;font-size:clamp(18px,2.5vw,28px);font-weight:750;line-height:1.55}
     .banner-quote span{color:#d8f5df;font-weight:700}
     @media(max-width:740px){.brand-banner{margin-top:14px;border-radius:12px}.brand-banner>img{max-height:270px}.banner-quote{padding:13px 12px}}
+
+    .featured-video { padding-top:22px; }
+    .video-thumb { display:block; position:relative; overflow:hidden; border-radius:18px; background:#eaf0f5; border:1px solid var(--border); box-shadow:var(--shadow); max-width:760px; }
+    .video-thumb img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+    .play-button { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:grid; place-items:center; width:76px; height:54px; border-radius:16px; background:#e62117; color:#fff; font-size:27px; padding-left:4px; box-shadow:0 5px 18px rgba(0,0,0,.2); }
+    .video-thumb:hover .play-button { transform:translate(-50%,-50%) scale(1.08); }
+    .video-caption { max-width:760px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 3px; color:var(--text); }
+    .video-caption a { color:var(--green); font-weight:700; text-decoration:none; }
+    @media(max-width:740px) { .video-thumb { border-radius:13px; } .play-button { width:62px; height:44px; font-size:23px; } }
+
 </style>
 </head>
 <body>
@@ -206,9 +216,20 @@
         <a class="btn" href="https://himelmuhammad.github.io/" target="_blank" rel="noopener" data-en="My Website ↗" data-bn="আমার ওয়েবসাইট ↗">My Website ↗</a>
       </div>
     </div>
-    <div class="hero-art">
-      <div class="orb"></div>
-      <img src="./brain.svg" alt="Colorful Brain Box brain icon">
+  </section>
+
+  <section class="section featured-video" id="featured-video">
+    <div class="section-head">
+      <h2 data-en="Featured Video" data-bn="নির্বাচিত ভিডিও">Featured Video</h2>
+      <p data-en="Watch and learn with Himel Muhammad." data-bn="হিমেল মুহাম্মদের সঙ্গে দেখুন ও শিখুন।">Watch and learn with Himel Muhammad.</p>
+    </div>
+    <a class="video-thumb" href="https://youtu.be/SjDU05gGGwI" target="_blank" rel="noopener" aria-label="Watch featured YouTube video">
+      <img src="https://i.ytimg.com/vi/SjDU05gGGwI/hqdefault.jpg" alt="Featured YouTube video thumbnail" loading="lazy">
+      <span class="play-button" aria-hidden="true">▶</span>
+    </a>
+    <div class="video-caption">
+      <strong data-en="Watch on YouTube" data-bn="YouTube-এ দেখুন">Watch on YouTube</strong>
+      <a href="https://www.youtube.com/@CoachHimelMuhammad" target="_blank" rel="noopener" data-en="Visit my channel ↗" data-bn="আমার চ্যানেল দেখুন ↗">Visit my channel ↗</a>
     </div>
   </section>
 
@@ -218,14 +239,6 @@
       <p data-en="Everything you need to learn and connect." data-bn="শেখা ও যোগাযোগের প্রয়োজনীয় সুবিধা এক জায়গায়।">Everything you need to learn and connect.</p>
     </div>
     <div class="grid">
-      <a class="tile" href="https://himelmuhammad.github.io/" target="_blank" rel="noopener">
-        <span class="emoji">🌐</span><h3 data-en="My Website" data-bn="আমার ওয়েবসাইট">My Website</h3>
-        <p data-en="Discover my work and coaching approach." data-bn="আমার কাজ ও কোচিং পদ্ধতি জানুন।">Discover my work and coaching approach.</p><span class="arrow">↗</span>
-      </a>
-      <a class="tile" href="https://www.youtube.com/results?search_query=Himel+Muhammad+Personal+Development" target="_blank" rel="noopener">
-        <span class="emoji">▶️</span><h3>YouTube</h3>
-        <p data-en="Videos and personal growth lessons." data-bn="ভিডিও ও ব্যক্তিগত উন্নয়নের শিক্ষা।">Videos and personal growth lessons.</p><span class="arrow">↗</span>
-      </a>
       <a class="tile" href="#physical-exercise">
         <span class="emoji">🏃</span><h3 data-en="Physical Exercise" data-bn="শারীরিক ব্যায়াম">Physical Exercise</h3>
         <p data-en="Build healthy daily movement habits." data-bn="প্রতিদিনের সুস্থ ব্যায়ামের অভ্যাস গড়ুন।">Build healthy daily movement habits.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
