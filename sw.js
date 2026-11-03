@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "brain-box-v1";
+const CACHE_NAME = "brain-box-v1-v2";
 const APP_FILES = [
   "./",
   "./index.html",
