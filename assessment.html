@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4faf5">
   <meta name="description" content="Brain Box by Himel Muhammad — personal development, self-assessment, learning and books.">
-  <title>Self-Growth Assessment | Brain Box</title>
+  <title>Self-Discovery & Growth | Brain Box</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./brain.svg" type="image/svg+xml">
   <style>
@@ -186,7 +186,22 @@
     /* Remove the oversized standalone Brain Box logo panel; keep the header logo. */
     .hero-art, .website-section, #website-section { display:none !important; }
 </style>
-</head><body><header>
+<style>
+:root{--teal:#167F89;--navy:#18304f;--muted:#5d6b7e;--pale:#eaf0f5;--line:rgba(24,48,79,.13)}
+.page-intro{padding:30px 0 8px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.feature-card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;background:#f7fafc;min-height:150px}
+.feature-card .symbol{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e3f3f1;color:var(--teal)}
+.feature-card h3{margin:0;font-size:18px}.feature-card p{margin:0;color:var(--muted);font-size:14px}.feature-card .go{margin-top:auto;color:var(--teal);font-weight:800}
+.subnav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.subnav a{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:white;font-weight:700}
+.disclaimer{padding:14px;border-left:4px solid #d49b32;background:#fff8e8;border-radius:8px;color:#57431d;font-size:14px}
+.tool-card{background:#f7fafc;border:1px solid var(--line);border-radius:15px;padding:18px}.tool-card h3{margin:0 0 5px}.tool-card p{color:var(--muted);margin:6px 0}.tool-card a{color:var(--teal);font-weight:750}
+.banner-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 18px;scrollbar-width:thin}
+.float-banner{flex:0 0 min(82%,620px);scroll-snap-align:start;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#eaf5ef,#eaf0f5);box-shadow:0 12px 30px rgba(24,48,79,.09);border:1px solid var(--line)}
+.float-banner img{width:100%;height:clamp(190px,34vw,300px);object-fit:cover;display:block}
+.float-copy{padding:16px 20px}.float-copy p{margin:0;font-weight:800;font-size:clamp(17px,2.3vw,23px);line-height:1.5;color:#07543e}
+.float-copy small{color:var(--muted);font-weight:700}
+@media(max-width:600px){.float-banner{flex-basis:88%}.feature-grid{grid-template-columns:1fr 1fr}.feature-card{padding:15px;min-height:155px}}
+</style></head><body><header>
   <div class="wrap nav">
     <a class="brand" href="./index.html">
       <img src="./brain.svg" alt="Brain Box multicolor brain logo">
@@ -196,32 +211,21 @@
       <button class="lang" id="langBtn" type="button">বাংলা</button>
     </div>
   </div>
-</header><main class="wrap"><div class="wrap" style="padding:18px 0 0"><a class="btn" href="./index.html" data-en="← Back to Home" data-bn="← হোমে ফিরুন">← Back to Home</a></div><section class="section" id="assessment">
-    <div class="section-head">
-      <h2 data-en="Self-Growth Assessment" data-bn="নিজের উন্নতি যাচাই">Self-Growth Assessment</h2>
-      <p data-en="A simple reflection exercise. Your answers stay in this page." data-bn="নিজেকে বোঝার একটি সহজ অনুশীলন। আপনার উত্তর এই পেজেই থাকে।">A simple reflection exercise. Your answers stay in this page.</p>
-    </div>
-    <div class="panel assessment">
-      <div>
-        <h3 data-en="Check in with yourself" data-bn="নিজের অবস্থা বুঝে নিন">Check in with yourself</h3>
-        <p class="note" data-en="Rate each statement from 1 (not yet) to 5 (strongly agree)." data-bn="প্রতিটি বক্তব্যে ১ (এখনো নয়) থেকে ৫ (সম্পূর্ণ একমত) নির্বাচন করুন।">Rate each statement from 1 (not yet) to 5 (strongly agree).</p>
-        <div id="questions"></div>
-        <button class="btn primary" id="scoreBtn" type="button" data-en="View My Reflection" data-bn="আমার ফলাফল দেখুন">View My Reflection</button>
-      </div>
-      <div>
-        <h3 data-en="Your reflection" data-bn="আপনার ফলাফল">Your reflection</h3>
-        <div id="result" aria-live="polite" data-en="Complete the questions to see a reflection." data-bn="ফলাফল দেখতে প্রশ্নগুলোর উত্তর দিন।">Complete the questions to see a reflection.</div>
-        <p class="note" data-en="This is an informal self-reflection tool, not a clinical or psychological diagnosis." data-bn="এটি সাধারণ আত্মমূল্যায়নের টুল; চিকিৎসাগত বা মনস্তাত্ত্বিক রোগ নির্ণয় নয়।">This is an informal self-reflection tool, not a clinical or psychological diagnosis.</p>
-      </div>
-    </div>
-  </section></main><footer>
+</header><main class="wrap"><div class="subnav"><a href="./index.html" data-en="Home" data-bn="হোম">Home</a></div><section class="page-intro"><h1 data-en="Self-Discovery & Growth" data-bn="আত্মঅন্বেষণ ও বিকাশ">Self-Discovery & Growth</h1><p class="lead" data-en="A growing library of structured self-reflection and recognised assessment resources." data-bn="আত্মপর্যালোচনা ও স্বীকৃত মূল্যায়ন রিসোর্সের সংগ্রহ।">A growing library of structured self-reflection and recognised assessment resources.</p></section>
+<div class="disclaimer" data-en="Important: These questionnaires are screening or functioning measures, not diagnoses. Do not use a score alone to diagnose a condition or make treatment decisions. Some instruments require permission/licensing before being reproduced or translated in an app." data-bn="গুরুত্বপূর্ণ: এগুলো স্ক্রিনিং বা কার্যক্ষমতা মূল্যায়নের উপকরণ—রোগ নির্ণয়ের বিকল্প নয়। শুধু স্কোর দেখে রোগ নির্ণয় বা চিকিৎসার সিদ্ধান্ত নেওয়া যাবে না। কিছু টুল অ্যাপে যুক্ত বা অনুবাদ করার আগে অনুমতি/লাইসেন্স প্রয়োজন।">Important: These questionnaires are screening or functioning measures, not diagnoses.</div>
+<div class="feature-grid" style="margin-top:18px">
+<article class="tool-card"><h3>🧠 Adult ADHD Self-Report Scale (ASRS v1.1) — 6Q</h3><p data-en="WHO-developed collaborative adult ADHD screener. Intended for adults (18+); it is not a diagnosis. Use the authorised English or available translated form from the rights-holder." data-bn="WHO-সহযোগিতায় তৈরি প্রাপ্তবয়স্কদের ADHD স্ক্রিনার। ১৮+ বয়সীদের জন্য; এটি রোগ নির্ণয় নয়। অনুমোদিত ইংরেজি বা অধিকারধারীর প্রকাশিত অনুবাদ ব্যবহার করুন।">WHO-developed collaborative adult ADHD screener. Not a diagnosis.</p><a href="https://license.tov.med.nyu.edu/product/asrs6Qscreener" target="_blank" rel="noopener">Official ASRS 6Q information ↗</a><p class="note" data-en="The 6Q screener is available for free use with attribution and without modifying its items. We have not inserted an unverified Bengali translation." data-bn="৬ প্রশ্নের স্ক্রিনারটি স্বীকৃতি/attribution-সহ বিনামূল্যে ব্যবহারের জন্য উপলভ্য; প্রশ্ন পরিবর্তন করা যাবে না। যাচাইবিহীন বাংলা অনুবাদ যুক্ত করা হয়নি।">The 6Q screener is available for free use with attribution.</p></article>
+<article class="tool-card"><h3>🌍 WHO Disability Assessment Schedule (WHODAS 2.0)</h3><p data-en="A standardised measure of functioning across cognition, mobility, self-care, relationships, life activities and participation." data-bn="চিন্তা-যোগাযোগ, চলাফেরা, নিজের যত্ন, সম্পর্ক, দৈনন্দিন কাজ ও সামাজিক অংশগ্রহণ মূল্যায়নের স্বীকৃত উপকরণ।">A standardised measure of functioning across six domains.</p><a href="https://www.who.int/classifications/international-classification-of-functioning-disability-and-health/who-disability-assessment-schedule" target="_blank" rel="noopener">WHO instrument, versions & licensing ↗</a><p class="note" data-en="Embedding the questionnaire in an electronic app and translations require checking WHO licensing/permission." data-bn="অ্যাপে প্রশ্নাবলি সংযুক্ত করা ও অনুবাদের জন্য WHO-এর লাইসেন্স/অনুমতি যাচাই করতে হবে।">Embedding and translations require WHO licensing/permission.</p></article>
+<article class="tool-card"><h3>🚶 WHO Global Physical Activity Questionnaire (GPAQ)</h3><p data-en="Assesses physical activity at work, during transport and leisure time; used in WHO STEPS surveillance." data-bn="কাজ, যাতায়াত ও অবসর সময়ে শারীরিক কার্যকলাপ মূল্যায়ন করে; WHO STEPS-এ ব্যবহৃত।">Assesses activity across work, transport and leisure time.</p><a href="https://www.who.int/teams/noncommunicable-diseases/surveillance/systems-tools/physical-activity-surveillance" target="_blank" rel="noopener">WHO GPAQ questionnaire & guidance ↗</a></article>
+<article class="tool-card"><h3>🌱 Personal Growth Reflection</h3><p data-en="A non-clinical reflection exercise for confidence, goals and habits." data-bn="আত্মবিশ্বাস, লক্ষ্য ও অভ্যাস নিয়ে সাধারণ আত্মপর্যালোচনা।">A non-clinical reflection exercise for confidence, goals and habits.</p><a href="./reflection.html">Open reflection tool →</a></article>
+</div></main><footer>
   <div class="wrap">
     <strong>Brain Box</strong> · Himel Muhammad
     <div data-en="Learn · Grow · Achieve" data-bn="শিখুন · বেড়ে উঠুন · এগিয়ে যান">Learn · Grow · Achieve</div>
     <p class="note">© <span id="year"></span> Himel Muhammad</p>
   </div>
 </footer><script>
-  let language = "en";
+  let language = localStorage.getItem("brainbox-language") || "en";
 
   const translations = {
     en: [
@@ -266,6 +270,7 @@
 
   function setLanguage(next) {
     language = next;
+    try { localStorage.setItem("brainbox-language", next); } catch(e) {}
     document.documentElement.lang = next;
     document.querySelectorAll("[data-en]").forEach(el => {
       el.textContent = el.dataset[next];
@@ -315,6 +320,7 @@
     }
   });
 
+  if (language === "bn") setLanguage("bn");
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   if (document.getElementById("questions")) renderQuestions();
