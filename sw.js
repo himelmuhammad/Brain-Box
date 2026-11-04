@@ -4,7 +4,12 @@ const APP_FILES = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./brain.svg"
+  "./brain.svg",
+  "./physical-exercise.html",
+  "./spiritual-exercise.html",
+  "./assessment.html",
+  "./books.html",
+  "./youtube.html"
 ];
 
 self.addEventListener("install", event => {
