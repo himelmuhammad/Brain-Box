@@ -5,6 +5,7 @@ const APP_FILES = [
   "./index.html",
   "./manifest.json",
   "./brain.svg",
+  "./himel-banner.jpg.jpg",
   "./self-development.html",
   "./contact.html",
   "./assessment.html",
