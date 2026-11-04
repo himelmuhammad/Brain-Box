@@ -201,7 +201,67 @@
 .float-copy{padding:16px 20px}.float-copy p{margin:0;font-weight:800;font-size:clamp(17px,2.3vw,23px);line-height:1.5;color:#07543e}
 .float-copy small{color:var(--muted);font-weight:700}
 @media(max-width:600px){.float-banner{flex-basis:88%}.feature-grid{grid-template-columns:1fr 1fr}.feature-card{padding:15px;min-height:155px}}
-</style></head><body><header>
+</style>
+<style>
+/* Accessible, touch-friendly header sizing */
+header .nav {
+  min-height: 88px;
+  gap: 16px;
+}
+header .brand {
+  gap: 12px;
+  font-size: clamp(20px, 2.2vw, 25px);
+  letter-spacing: .5px;
+  line-height: 1.25;
+}
+header .brand img {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+}
+header .brand small {
+  display: inline-block;
+  font-size: 14px !important;
+  line-height: 1.35;
+}
+header .lang {
+  min-height: 48px;
+  padding: 11px 18px;
+  font-size: 16px;
+  line-height: 1.3;
+}
+@media (max-width: 600px) {
+  header .nav {
+    min-height: 82px;
+    gap: 10px;
+  }
+  header .brand {
+    gap: 10px;
+    font-size: 19px;
+    letter-spacing: .2px;
+  }
+  header .brand img {
+    width: 48px;
+    height: 48px;
+  }
+  header .brand small {
+    font-size: 12px !important;
+  }
+  header .lang {
+    min-height: 46px;
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 360px) {
+  header .nav { min-height: 76px; }
+  header .brand { font-size: 17px; }
+  header .brand img { width: 42px; height: 42px; }
+  header .brand small { font-size: 11px !important; }
+  header .lang { padding: 9px 11px; }
+}
+</style>
+</head><body><header>
   <div class="wrap nav">
     <a class="brand" href="./index.html">
       <img src="./brain.svg" alt="Brain Box multicolor brain logo">
