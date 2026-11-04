@@ -186,7 +186,22 @@
     /* Remove the oversized standalone Brain Box logo panel; keep the header logo. */
     .hero-art, .website-section, #website-section { display:none !important; }
 </style>
-</head><body><header>
+<style>
+:root{--teal:#167F89;--navy:#18304f;--muted:#5d6b7e;--pale:#eaf0f5;--line:rgba(24,48,79,.13)}
+.page-intro{padding:30px 0 8px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.feature-card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;background:#f7fafc;min-height:150px}
+.feature-card .symbol{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e3f3f1;color:var(--teal)}
+.feature-card h3{margin:0;font-size:18px}.feature-card p{margin:0;color:var(--muted);font-size:14px}.feature-card .go{margin-top:auto;color:var(--teal);font-weight:800}
+.subnav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.subnav a{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:white;font-weight:700}
+.disclaimer{padding:14px;border-left:4px solid #d49b32;background:#fff8e8;border-radius:8px;color:#57431d;font-size:14px}
+.tool-card{background:#f7fafc;border:1px solid var(--line);border-radius:15px;padding:18px}.tool-card h3{margin:0 0 5px}.tool-card p{color:var(--muted);margin:6px 0}.tool-card a{color:var(--teal);font-weight:750}
+.banner-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 18px;scrollbar-width:thin}
+.float-banner{flex:0 0 min(82%,620px);scroll-snap-align:start;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#eaf5ef,#eaf0f5);box-shadow:0 12px 30px rgba(24,48,79,.09);border:1px solid var(--line)}
+.float-banner img{width:100%;height:clamp(190px,34vw,300px);object-fit:cover;display:block}
+.float-copy{padding:16px 20px}.float-copy p{margin:0;font-weight:800;font-size:clamp(17px,2.3vw,23px);line-height:1.5;color:#07543e}
+.float-copy small{color:var(--muted);font-weight:700}
+@media(max-width:600px){.float-banner{flex-basis:88%}.feature-grid{grid-template-columns:1fr 1fr}.feature-card{padding:15px;min-height:155px}}
+</style></head><body><header>
   <div class="wrap nav">
     <a class="brand" href="./index.html">
       <img src="./brain.svg" alt="Brain Box multicolor brain logo">
@@ -196,25 +211,22 @@
       <button class="lang" id="langBtn" type="button">বাংলা</button>
     </div>
   </div>
-</header><main class="wrap"><section class="brand-banner" aria-label="Himel Muhammad banner">
-    <img src="./himel-banner.jpg.jpg" alt="Himel Muhammad sitting in a garden">
-    <div class="banner-quote">
-      <p data-en="I am Himel, as essential as gandharaj, bhringraj, coconut, olive and castor oils." data-bn="আমি একজন হিমেল,\nযেমন প্রয়োজন গন্ধরাজ- ভ্রিঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।">আমি একজন হিমেল, যেমন প্রয়োজন গন্ধরাজ- ভৃঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।</p>
-      <span>— Himel Muhammad —</span>
-    </div>
-  </section>
-<section class="hero" id="home">
+</header><main class="wrap"><div class="subnav"><a href="./index.html" data-en="Home" data-bn="হোম">Home</a></div><section class="section" aria-label="Himel Muhammad featured banners">
+<div class="banner-rail">
+ <article class="float-banner"><img src="./himel-banner.jpg.jpg" alt="Himel Muhammad in a garden" loading="eager"><div class="float-copy"><p data-en="I am Himel, as essential as gandharaj, bhringraj, coconut, olive and castor oils." data-bn="আমি একজন হিমেল, যেমন প্রয়োজন গন্ধরাজ- ভ্রিঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।">আমি একজন হিমেল, যেমন প্রয়োজন গন্ধরাজ- ভ্রিঙ্গরাজ, নারকেল, জয়তুন-কদুর তেল।</p><small>— Himel Muhammad —</small></div></article>
+ <article class="float-banner"><div class="float-copy" style="padding:35px 24px"><p data-en="Grow Your Mind. Transform Your Life." data-bn="মনকে গড়ুন। জীবন বদলান।">Grow Your Mind. Transform Your Life.</p><small data-en="Learn · Reflect · Grow" data-bn="শিখুন · ভাবুন · এগিয়ে যান">Learn · Reflect · Grow</small></div></article>
+ <article class="float-banner"><div class="float-copy" style="padding:35px 24px"><p data-en="Small steps. Meaningful change." data-bn="ছোট পদক্ষেপ। অর্থবহ পরিবর্তন।">Small steps. Meaningful change.</p><small data-en="Your personal growth space" data-bn="আপনার ব্যক্তিগত উন্নয়নের ঠিকানা">Your personal growth space</small></div></article>
+</div></section><section class="hero" id="home">
     <div>
       <span class="eyebrow" data-en="YOUR PERSONAL GROWTH SPACE" data-bn="আপনার ব্যক্তিগত উন্নয়নের ঠিকানা">YOUR PERSONAL GROWTH SPACE</span>
       <h1 data-en-html="Grow Your Mind.<br><span>Transform Your Life.</span>" data-bn-html="মনকে গড়ুন।<br><span>জীবন বদলান।</span>">Grow Your Mind.<br><span>Transform Your Life.</span></h1>
       <p class="lead" data-en="Learn, reflect and grow with Himel Muhammad. Explore helpful videos, self-assessments, books and coaching connections in one place." data-bn="হিমেল মুহাম্মদের সঙ্গে শিখুন, নিজেকে জানুন এবং এগিয়ে যান। ভিডিও, আত্মমূল্যায়ন, বই ও কোচিং যোগাযোগ—সব এক জায়গায়।">Learn, reflect and grow with Himel Muhammad. Explore helpful videos, self-assessments, books and coaching connections in one place.</p>
       <div class="actions">
-        <a class="btn primary" href="#tools" data-en="Explore Brain Box →" data-bn="Brain Box দেখুন →">Explore Brain Box →</a>
+        <a class="btn primary" href="#main-features" data-en="Explore Brain Box →" data-bn="Brain Box দেখুন →">Explore Brain Box →</a>
         <a class="btn" href="https://himelmuhammad.github.io/" target="_blank" rel="noopener" data-en="My Website ↗" data-bn="আমার ওয়েবসাইট ↗">My Website ↗</a>
       </div>
     </div>
-  </section>
-<section class="section featured-video" id="featured-video">
+  </section><section class="section featured-video" id="featured-video">
     <div class="section-head">
       <h2 data-en="Featured Video" data-bn="নির্বাচিত ভিডিও">Featured Video</h2>
       <p data-en="Watch and learn with Himel Muhammad." data-bn="হিমেল মুহাম্মদের সঙ্গে দেখুন ও শিখুন।">Watch and learn with Himel Muhammad.</p>
@@ -227,51 +239,20 @@
       <strong data-en="Watch on YouTube" data-bn="YouTube-এ দেখুন">Watch on YouTube</strong>
       <a href="https://www.youtube.com/@CoachHimelMuhammad" target="_blank" rel="noopener" data-en="Visit my channel ↗" data-bn="আমার চ্যানেল দেখুন ↗">Visit my channel ↗</a>
     </div>
-  </section>
-<section class="section" id="tools">
-    <div class="section-head">
-      <h2 data-en="Your Growth Toolkit" data-bn="আপনার উন্নয়নের টুলকিট">Your Growth Toolkit</h2>
-      <p data-en="Everything you need to learn and connect." data-bn="শেখা ও যোগাযোগের প্রয়োজনীয় সুবিধা এক জায়গায়।">Everything you need to learn and connect.</p>
-    </div>
-    <div class="grid">
-      <a class="tile" href="./physical-exercise.html">
-        <span class="emoji">🏃</span><h3 data-en="Physical Exercise" data-bn="শারীরিক ব্যায়াম">Physical Exercise</h3>
-        <p data-en="Build healthy daily movement habits." data-bn="প্রতিদিনের সুস্থ ব্যায়ামের অভ্যাস গড়ুন।">Build healthy daily movement habits.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
-      </a>
-      <a class="tile" href="./spiritual-exercise.html">
-        <span class="emoji">🧘</span><h3 data-en="Spiritual Exercise" data-bn="আধ্যাত্মিক অনুশীলন">Spiritual Exercise</h3>
-        <p data-en="Practice reflection, gratitude and inner calm." data-bn="আত্মপর্যালোচনা, কৃতজ্ঞতা ও অন্তরের প্রশান্তি চর্চা করুন।">Practice reflection, gratitude and inner calm.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
-      </a>
-      <a class="tile" href="./assessment.html">
-        <span class="emoji">🧠</span><h3 data-en="Assessment Tool" data-bn="আত্মমূল্যায়ন">Assessment Tool</h3>
-        <p data-en="Reflect on your mindset and habits." data-bn="নিজের চিন্তা ও অভ্যাস সম্পর্কে জানুন।">Reflect on your mindset and habits.</p><span class="arrow" data-en="Start →" data-bn="শুরু করুন →">Start →</span>
-      </a>
-      <a class="tile" href="./books.html">
-        <span class="emoji">📚</span><h3 data-en="Book Library" data-bn="বইয়ের লাইব্রেরি">Book Library</h3>
-        <p data-en="Explore books and reading resources." data-bn="বই ও পড়ার উপকরণ দেখুন।">Explore books and reading resources.</p><span class="arrow" data-en="Explore →" data-bn="দেখুন →">Explore →</span>
-      </a>
-<a class="tile" href="https://us05web.zoom.us/j/81555142564?pwd=LLHiB5rzWRcOacAaMRXgdN02gpdxiS.1" target="_blank" rel="noopener">
-        <span class="emoji">📹</span><h3 data-en="Book a Zoom Session" data-bn="Zoom সেশন বুক করুন">Book a Zoom Session</h3>
-        <p data-en="Join a meeting using your session link." data-bn="আপনার সেশনের লিংক দিয়ে মিটিংয়ে যোগ দিন।">Join a meeting using your session link.</p><span class="arrow">↗</span>
-      </a>
-      <a class="tile" href="mailto:coachhimelmuhammad@gmail.com">
-        <span class="emoji">✉️</span><h3 data-en="Email Himel" data-bn="ইমেইল করুন">Email Himel</h3>
-        <p data-en="Get in touch for coaching enquiries." data-bn="কোচিং বিষয়ে যোগাযোগ করুন।">Get in touch for coaching enquiries.</p><span class="arrow">↗</span>
-      </a>
-      <a class="tile" href="https://wa.me/8801621241503" target="_blank" rel="noopener">
-        <span class="emoji">💬</span><h3 data-en="WhatsApp" data-bn="হোয়াটসঅ্যাপ">WhatsApp</h3>
-        <p data-en="Connect directly on WhatsApp." data-bn="সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করুন।">Connect directly on WhatsApp.</p><span class="arrow" data-en="Connect →" data-bn="যোগাযোগ →">Connect →</span>
-      </a>
-    </div>
-    <p class="note" data-en="Your coaching and contact links are ready to use." data-bn="আপনার কোচিং ও যোগাযোগের লিংকগুলো ব্যবহার করার জন্য প্রস্তুত।">Note: Add your actual WhatsApp number and Zoom booking link before sharing the app.</p>
-  </section></main><footer>
+  </section><section class="section" id="main-features"><div class="section-head"><h2 data-en="Explore Brain Box" data-bn="Brain Box ঘুরে দেখুন">Explore Brain Box</h2><p data-en="Choose a space and explore one step at a time." data-bn="আপনার প্রয়োজনীয় বিভাগ বেছে নিন।">Choose a space and explore one step at a time.</p></div>
+<div class="feature-grid">
+<a class="feature-card" href="./self-development.html"><span class="symbol">🌱</span><h3 data-en="Self Development" data-bn="আত্মউন্নয়ন">Self Development</h3><p data-en="Exercise, reflection and reading resources." data-bn="ব্যায়াম, আত্মপর্যালোচনা ও বই।">Exercise, reflection and reading resources.</p><span class="go">Explore →</span></a>
+<a class="feature-card" href="./assessment.html"><span class="symbol">🧠</span><h3 data-en="Self-Discovery & Growth" data-bn="আত্মঅন্বেষণ ও বিকাশ">Self-Discovery & Growth</h3><p data-en="Question-based reflection and recognised screening resources." data-bn="প্রশ্নভিত্তিক আত্মমূল্যায়ন ও স্বীকৃত স্ক্রিনিং রিসোর্স।">Question-based reflection and recognised screening resources.</p><span class="go">Explore →</span></a>
+<a class="feature-card" href="./youtube.html"><span class="symbol">▶</span><h3 data-en="Video Learning" data-bn="ভিডিও থেকে শিখুন">Video Learning</h3><p data-en="Watch featured lessons and videos." data-bn="নির্বাচিত ভিডিও ও লেসন দেখুন।">Watch featured lessons and videos.</p><span class="go">Watch →</span></a>
+<a class="feature-card" href="./contact.html"><span class="symbol">✉</span><h3 data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</h3><p data-en="Connect by WhatsApp, email or coaching session." data-bn="WhatsApp, ইমেইল অথবা কোচিং সেশনে যোগাযোগ।">Connect by WhatsApp, email or coaching session.</p><span class="go">Connect →</span></a>
+</div></section></main><footer>
   <div class="wrap">
     <strong>Brain Box</strong> · Himel Muhammad
     <div data-en="Learn · Grow · Achieve" data-bn="শিখুন · বেড়ে উঠুন · এগিয়ে যান">Learn · Grow · Achieve</div>
     <p class="note">© <span id="year"></span> Himel Muhammad</p>
   </div>
 </footer><script>
-  let language = "en";
+  let language = localStorage.getItem("brainbox-language") || "en";
 
   const translations = {
     en: [
@@ -316,6 +297,7 @@
 
   function setLanguage(next) {
     language = next;
+    try { localStorage.setItem("brainbox-language", next); } catch(e) {}
     document.documentElement.lang = next;
     document.querySelectorAll("[data-en]").forEach(el => {
       el.textContent = el.dataset[next];
@@ -365,6 +347,7 @@
     }
   });
 
+  if (language === "bn") setLanguage("bn");
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   if (document.getElementById("questions")) renderQuestions();
