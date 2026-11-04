@@ -186,7 +186,22 @@
     /* Remove the oversized standalone Brain Box logo panel; keep the header logo. */
     .hero-art, .website-section, #website-section { display:none !important; }
 </style>
-</head><body><header>
+<style>
+:root{--teal:#167F89;--navy:#18304f;--muted:#5d6b7e;--pale:#eaf0f5;--line:rgba(24,48,79,.13)}
+.page-intro{padding:30px 0 8px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.feature-card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;background:#f7fafc;min-height:150px}
+.feature-card .symbol{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e3f3f1;color:var(--teal)}
+.feature-card h3{margin:0;font-size:18px}.feature-card p{margin:0;color:var(--muted);font-size:14px}.feature-card .go{margin-top:auto;color:var(--teal);font-weight:800}
+.subnav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.subnav a{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:white;font-weight:700}
+.disclaimer{padding:14px;border-left:4px solid #d49b32;background:#fff8e8;border-radius:8px;color:#57431d;font-size:14px}
+.tool-card{background:#f7fafc;border:1px solid var(--line);border-radius:15px;padding:18px}.tool-card h3{margin:0 0 5px}.tool-card p{color:var(--muted);margin:6px 0}.tool-card a{color:var(--teal);font-weight:750}
+.banner-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 18px;scrollbar-width:thin}
+.float-banner{flex:0 0 min(82%,620px);scroll-snap-align:start;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#eaf5ef,#eaf0f5);box-shadow:0 12px 30px rgba(24,48,79,.09);border:1px solid var(--line)}
+.float-banner img{width:100%;height:clamp(190px,34vw,300px);object-fit:cover;display:block}
+.float-copy{padding:16px 20px}.float-copy p{margin:0;font-weight:800;font-size:clamp(17px,2.3vw,23px);line-height:1.5;color:#07543e}
+.float-copy small{color:var(--muted);font-weight:700}
+@media(max-width:600px){.float-banner{flex-basis:88%}.feature-grid{grid-template-columns:1fr 1fr}.feature-card{padding:15px;min-height:155px}}
+</style></head><body><header>
   <div class="wrap nav">
     <a class="brand" href="./index.html">
       <img src="./brain.svg" alt="Brain Box multicolor brain logo">
@@ -196,7 +211,7 @@
       <button class="lang" id="langBtn" type="button">বাংলা</button>
     </div>
   </div>
-</header><main class="wrap"><div class="wrap" style="padding:18px 0 0"><a class="btn" href="./index.html" data-en="← Back to Home" data-bn="← হোমে ফিরুন">← Back to Home</a></div><section class="section" id="spiritual-exercise">
+</header><main class="wrap"><div class="subnav"><a href="./index.html" data-en="Home" data-bn="হোম">Home</a></div><section class="section" id="spiritual-exercise">
     <div class="section-head"><h2 data-en="Spiritual Exercise" data-bn="আধ্যাত্মিক অনুশীলন">Spiritual Exercise</h2><p data-en="Daily practices for gratitude, reflection and purpose." data-bn="কৃতজ্ঞতা, আত্মপর্যালোচনা ও জীবনের উদ্দেশ্য নিয়ে দৈনিক চর্চা।">Daily practices for gratitude, reflection and purpose.</p></div>
     <div class="book-list">
       <article class="book"><div class="book-icon">🙏</div><h3 data-en="Gratitude" data-bn="কৃতজ্ঞতা">Gratitude</h3><p data-en="Write three things you are grateful for today." data-bn="আজ যে তিনটি বিষয়ের জন্য কৃতজ্ঞ, সেগুলো লিখুন।">Write three things you are grateful for today.</p></article>
@@ -210,7 +225,7 @@
     <p class="note">© <span id="year"></span> Himel Muhammad</p>
   </div>
 </footer><script>
-  let language = "en";
+  let language = localStorage.getItem("brainbox-language") || "en";
 
   const translations = {
     en: [
@@ -255,6 +270,7 @@
 
   function setLanguage(next) {
     language = next;
+    try { localStorage.setItem("brainbox-language", next); } catch(e) {}
     document.documentElement.lang = next;
     document.querySelectorAll("[data-en]").forEach(el => {
       el.textContent = el.dataset[next];
@@ -304,6 +320,7 @@
     }
   });
 
+  if (language === "bn") setLanguage("bn");
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   if (document.getElementById("questions")) renderQuestions();
