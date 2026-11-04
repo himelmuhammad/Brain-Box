@@ -1,13 +1,16 @@
 
-const CACHE_NAME = "brain-box-v3";
+const CACHE_NAME = "brain-box-v4";
 const APP_FILES = [
   "./",
   "./index.html",
   "./manifest.json",
   "./brain.svg",
+  "./self-development.html",
+  "./contact.html",
+  "./assessment.html",
+  "./reflection.html",
   "./physical-exercise.html",
   "./spiritual-exercise.html",
-  "./assessment.html",
   "./books.html",
   "./youtube.html"
 ];
