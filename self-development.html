@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4faf5">
+  <meta name="description" content="Brain Box by Himel Muhammad — personal development, self-assessment, learning and books.">
+  <title>Self Development | Brain Box</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./brain.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg:#f5faf6;
+      --white:#ffffff;
+      --green:#286748;
+      --green2:#438b63;
+      --light:#e5f3e8;
+      --text:#20372b;
+      --muted:#708176;
+      --border:#dfebe1;
+      --shadow:0 12px 35px rgba(36,83,55,.07);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter,"Noto Sans Bengali",Arial,sans-serif;
+      line-height:1.6;
+    }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    .wrap { width:min(1100px,92%); margin:auto; }
+    header {
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid var(--border);
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:blur(12px);
+    }
+    .nav {
+      min-height:76px; display:flex; align-items:center;
+      justify-content:space-between; gap:14px;
+    }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:21px; }
+    .brand img { width:45px; height:45px; }
+    .nav-right { display:flex; align-items:center; gap:10px; }
+    .lang {
+      border:1px solid var(--border); border-radius:12px;
+      padding:9px 13px; background:white; color:var(--green); font-weight:700;
+    }
+    .hero {
+      padding:54px 0 34px;
+      display:grid; grid-template-columns:1.35fr .8fr;
+      align-items:center; gap:35px;
+    }
+    .eyebrow {
+      display:inline-block; background:var(--light); color:var(--green);
+      border-radius:99px; padding:7px 13px; font-size:12px;
+      font-weight:800; letter-spacing:.6px;
+    }
+    h1 { font-size:clamp(36px,6vw,61px); line-height:1.12; letter-spacing:-1.7px; margin:20px 0 15px; }
+    h1 span { color:var(--green2); }
+    .lead { color:var(--muted); font-size:17px; max-width:560px; }
+    .actions { display:flex; gap:11px; flex-wrap:wrap; margin-top:25px; }
+    .btn {
+      display:inline-flex; justify-content:center; align-items:center; gap:8px;
+      border:1px solid var(--border); border-radius:13px;
+      padding:12px 17px; font-weight:750; background:white;
+    }
+    .btn.primary { background:var(--green); color:white; border-color:var(--green); }
+    .btn:hover, .tile:hover { transform:translateY(-2px); }
+    .hero-art {
+      min-height:280px; display:grid; place-items:center;
+      background:linear-gradient(145deg,#e4f5e8,#ffffff 65%,#e8f0ff);
+      border:1px solid var(--border); border-radius:30px; box-shadow:var(--shadow);
+      overflow:hidden; position:relative;
+    }
+    .hero-art img { width:170px; max-width:65%; position:relative; z-index:1; }
+    .orb { position:absolute; width:190px; height:190px; border-radius:50%; background:#d1eed9; filter:blur(2px); }
+    .section { padding:32px 0; }
+    .section-head { margin-bottom:19px; }
+    .section-head h2 { margin:0; font-size:27px; letter-spacing:-.5px; }
+    .section-head p { margin:5px 0 0; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+    .tile {
+      transition:transform .2s ease;
+      background:white; border:1px solid var(--border);
+      border-radius:20px; padding:22px; box-shadow:var(--shadow);
+      min-height:170px; display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .tile .emoji { font-size:27px; margin-bottom:12px; }
+    .tile h3 { margin:0 0 5px; font-size:18px; }
+    .tile p { margin:0; color:var(--muted); font-size:14px; }
+    .tile .arrow { color:var(--green2); margin-top:auto; padding-top:12px; font-weight:800; }
+    .panel {
+      background:white; border:1px solid var(--border);
+      border-radius:23px; padding:24px; box-shadow:var(--shadow);
+    }
+    .assessment { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .question { border-bottom:1px solid var(--border); padding:13px 0; }
+    .question p { margin:0 0 8px; font-weight:650; }
+    .question select {
+      width:100%; padding:11px; border-radius:10px;
+      border:1px solid var(--border); background:#fbfefb; color:var(--text);
+    }
+    #result { margin-top:14px; padding:13px; background:var(--light); border-radius:12px; }
+    .book-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .book { background:#f0f8f1; border-radius:16px; padding:18px; }
+    .book .book-icon { font-size:30px; }
+    .book h3 { margin:8px 0 5px; font-size:16px; }
+    .book p { margin:0 0 12px; color:var(--muted); font-size:13px; }
+    .book a { color:var(--green); font-weight:750; }
+    .note { font-size:13px; color:var(--muted); }
+    footer { margin-top:30px; padding:28px 0; border-top:1px solid var(--border); color:var(--muted); text-align:center; }
+    @media(max-width:740px) {
+      .hero { grid-template-columns:1fr; padding-top:35px; gap:22px; }
+      .hero-art { min-height:210px; }
+      .hero-art img { width:125px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+      .tile { padding:16px; min-height:160px; }
+      .assessment { grid-template-columns:1fr; }
+      .book-list { grid-template-columns:1fr; }
+      .section-head h2 { font-size:24px; }
+      .brand { font-size:18px; }
+    }
+    @media(max-width:360px) {
+      .grid { grid-template-columns:1fr; }
+      .brand img { width:36px; height:36px; }
+    }
+  
+    /* HIMEL MUHAMMAD website-aligned visual identity */
+    :root {
+      --bg:#ffffff;
+      --white:#ffffff;
+      --green:#167F89;
+      --green2:#167F89;
+      --light:#eaf0f5;
+      --text:#18304f;
+      --muted:#5d6b7e;
+      --border:rgba(24,48,79,.12);
+      --shadow:0 10px 28px rgba(24,48,79,.055);
+    }
+    body { background:var(--bg); color:var(--text); line-height:1.7; }
+    header { background:rgba(255,255,255,.96); border-bottom:1px solid var(--border); }
+    .brand { letter-spacing:1.2px; }
+    .lang { background:var(--green); color:#fff; border:0; border-radius:999px; }
+    .hero { padding:74px 0 54px; gap:55px; }
+    .eyebrow { background:var(--light); color:var(--green); border-radius:5px; letter-spacing:1.5px; }
+    h1 { letter-spacing:-2px; }
+    h1 span { color:var(--green); }
+    .hero-art { background:linear-gradient(145deg,#f4f7fa,#ffffff 70%); border-radius:18px; box-shadow:var(--shadow); }
+    .orb { background:#dcebed; }
+    .btn { border-radius:9px; box-shadow:none; }
+    .btn.primary { background:var(--green); border-color:var(--green); }
+    .section { padding:48px 0; }
+    .section-head { max-width:680px; margin-bottom:28px; }
+    .section-head h2 { font-size:clamp(29px,4vw,43px); letter-spacing:-.8px; }
+    .grid { gap:18px; }
+    .tile { border-radius:13px; box-shadow:none; background:var(--panel, #f4f7fa); border-color:var(--border); }
+    .tile .arrow, .book a { color:var(--green); }
+    .panel { border-radius:13px; box-shadow:none; background:#f4f7fa; }
+    .book { background:#f4f7fa; border:1px solid var(--border); border-radius:13px; }
+    #result { background:#eaf0f5; }
+    footer { border-color:var(--border); }
+    @media(max-width:740px) {
+      .hero { padding-top:50px; gap:30px; }
+      .section { padding:38px 0; }
+    }
+    .brand-banner{margin:24px auto 10px;overflow:hidden;border-radius:18px;background:#eaf0f5;box-shadow:var(--shadow)}
+    .brand-banner>img{display:block;width:100%;max-height:440px;object-fit:cover;object-position:center 42%}
+    .banner-quote{padding:18px 20px;text-align:center;background:#07543e;color:#fff}
+    .banner-quote p{margin:0 auto 6px;max-width:900px;font-size:clamp(18px,2.5vw,28px);font-weight:750;line-height:1.55}
+    .banner-quote span{color:#d8f5df;font-weight:700}
+    @media(max-width:740px){.brand-banner{margin-top:14px;border-radius:12px}.brand-banner>img{max-height:270px}.banner-quote{padding:13px 12px}}
+
+    .featured-video { padding-top:22px; }
+    .video-thumb { display:block; position:relative; overflow:hidden; border-radius:18px; background:#eaf0f5; border:1px solid var(--border); box-shadow:var(--shadow); max-width:760px; }
+    .video-thumb img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+    .play-button { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:grid; place-items:center; width:76px; height:54px; border-radius:16px; background:#e62117; color:#fff; font-size:27px; padding-left:4px; box-shadow:0 5px 18px rgba(0,0,0,.2); }
+    .video-thumb:hover .play-button { transform:translate(-50%,-50%) scale(1.08); }
+    .video-caption { max-width:760px; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 3px; color:var(--text); }
+    .video-caption a { color:var(--green); font-weight:700; text-decoration:none; }
+    @media(max-width:740px) { .video-thumb { border-radius:13px; } .play-button { width:62px; height:44px; font-size:23px; } }
+
+
+    /* Remove the oversized standalone Brain Box logo panel; keep the header logo. */
+    .hero-art, .website-section, #website-section { display:none !important; }
+</style>
+<style>
+:root{--teal:#167F89;--navy:#18304f;--muted:#5d6b7e;--pale:#eaf0f5;--line:rgba(24,48,79,.13)}
+.page-intro{padding:30px 0 8px}.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.feature-card{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;background:#f7fafc;min-height:150px}
+.feature-card .symbol{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e3f3f1;color:var(--teal)}
+.feature-card h3{margin:0;font-size:18px}.feature-card p{margin:0;color:var(--muted);font-size:14px}.feature-card .go{margin-top:auto;color:var(--teal);font-weight:800}
+.subnav{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.subnav a{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:white;font-weight:700}
+.disclaimer{padding:14px;border-left:4px solid #d49b32;background:#fff8e8;border-radius:8px;color:#57431d;font-size:14px}
+.tool-card{background:#f7fafc;border:1px solid var(--line);border-radius:15px;padding:18px}.tool-card h3{margin:0 0 5px}.tool-card p{color:var(--muted);margin:6px 0}.tool-card a{color:var(--teal);font-weight:750}
+.banner-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 2px 18px;scrollbar-width:thin}
+.float-banner{flex:0 0 min(82%,620px);scroll-snap-align:start;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#eaf5ef,#eaf0f5);box-shadow:0 12px 30px rgba(24,48,79,.09);border:1px solid var(--line)}
+.float-banner img{width:100%;height:clamp(190px,34vw,300px);object-fit:cover;display:block}
+.float-copy{padding:16px 20px}.float-copy p{margin:0;font-weight:800;font-size:clamp(17px,2.3vw,23px);line-height:1.5;color:#07543e}
+.float-copy small{color:var(--muted);font-weight:700}
+@media(max-width:600px){.float-banner{flex-basis:88%}.feature-grid{grid-template-columns:1fr 1fr}.feature-card{padding:15px;min-height:155px}}
+</style></head><body><header>
+  <div class="wrap nav">
+    <a class="brand" href="./index.html">
+      <img src="./brain.svg" alt="Brain Box multicolor brain logo">
+      <span>HIMEL <small style="font-size:12px;font-weight:600;letter-spacing:.3px;color:#5d6b7e;">Muhammad · Brain Box</small></span>
+    </a>
+    <div class="nav-right">
+      <button class="lang" id="langBtn" type="button">বাংলা</button>
+    </div>
+  </div>
+</header><main class="wrap"><div class="subnav"><a href="./index.html" data-en="Home" data-bn="হোম">Home</a></div><section class="page-intro"><h1 data-en="Self Development" data-bn="আত্মউন্নয়ন">Self Development</h1><p class="lead" data-en="Build your body, mind and inner life through practical routines and reading." data-bn="ব্যবহারিক অনুশীলন ও পাঠের মাধ্যমে শরীর, মন ও অন্তর্জগতের যত্ন নিন।">Build your body, mind and inner life through practical routines and reading.</p></section>
+<div class="feature-grid">
+<a class="feature-card" href="./physical-exercise.html"><span class="symbol">🏃</span><h3 data-en="Physical Exercise" data-bn="শারীরিক ব্যায়াম">Physical Exercise</h3><p data-en="Movement, flexibility and healthy habits." data-bn="শরীরচর্চা, নমনীয়তা ও সুস্থ অভ্যাস।">Movement, flexibility and healthy habits.</p><span class="go">Open →</span></a>
+<a class="feature-card" href="./spiritual-exercise.html"><span class="symbol">🧘</span><h3 data-en="Spiritual Exercise" data-bn="আধ্যাত্মিক অনুশীলন">Spiritual Exercise</h3><p data-en="Gratitude, reflection and purpose." data-bn="কৃতজ্ঞতা, আত্মপর্যালোচনা ও উদ্দেশ্য।">Gratitude, reflection and purpose.</p><span class="go">Open →</span></a>
+<a class="feature-card" href="./books.html"><span class="symbol">📚</span><h3 data-en="E-Library" data-bn="ই-লাইব্রেরি">E-Library</h3><p data-en="Books, guides and reading resources." data-bn="বই, গাইড ও পাঠের উপকরণ।">Books, guides and reading resources.</p><span class="go">Open →</span></a>
+</div></main><footer>
+  <div class="wrap">
+    <strong>Brain Box</strong> · Himel Muhammad
+    <div data-en="Learn · Grow · Achieve" data-bn="শিখুন · বেড়ে উঠুন · এগিয়ে যান">Learn · Grow · Achieve</div>
+    <p class="note">© <span id="year"></span> Himel Muhammad</p>
+  </div>
+</footer><script>
+  let language = localStorage.getItem("brainbox-language") || "en";
+
+  const translations = {
+    en: [
+      "I feel confident in my abilities.",
+      "I can recognise limiting beliefs.",
+      "I set clear personal goals.",
+      "I take small steps toward my goals."
+    ],
+    bn: [
+      "আমি নিজের সক্ষমতার ওপর আত্মবিশ্বাসী।",
+      "আমি নিজের সীমাবদ্ধ বিশ্বাস চিনতে পারি।",
+      "আমি ব্যক্তিগত লক্ষ্য পরিষ্কারভাবে নির্ধারণ করি।",
+      "আমি লক্ষ্যের দিকে ছোট ছোট পদক্ষেপ নিই।"
+    ]
+  };
+
+  function renderQuestions() {
+    const root = document.getElementById("questions");
+    root.innerHTML = "";
+    translations[language].forEach((question, index) => {
+      const row = document.createElement("div");
+      row.className = "question";
+      const label = document.createElement("p");
+      label.textContent = (index + 1) + ". " + question;
+      const select = document.createElement("select");
+      select.id = "q" + index;
+      select.setAttribute("aria-label", question);
+      const prompt = document.createElement("option");
+      prompt.value = "";
+      prompt.textContent = language === "en" ? "Choose 1–5" : "১–৫ নির্বাচন করুন";
+      select.appendChild(prompt);
+      for (let i = 1; i <= 5; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        select.appendChild(option);
+      }
+      row.append(label, select);
+      root.appendChild(row);
+    });
+  }
+
+  function setLanguage(next) {
+    language = next;
+    try { localStorage.setItem("brainbox-language", next); } catch(e) {}
+    document.documentElement.lang = next;
+    document.querySelectorAll("[data-en]").forEach(el => {
+      el.textContent = el.dataset[next];
+    });
+    document.querySelectorAll("[data-en-html]").forEach(el => {
+      el.innerHTML = el.dataset[next + "Html"];
+    });
+    document.getElementById("langBtn").textContent =
+      next === "en" ? "বাংলা" : "English";
+    const result = document.getElementById("result");
+    if (result) result.textContent = next === "en"
+      ? "Complete the questions to see a reflection."
+      : "ফলাফল দেখতে প্রশ্নগুলোর উত্তর দিন।";
+    if (document.getElementById("questions")) renderQuestions();
+  }
+
+  const langButton = document.getElementById("langBtn");
+  if (langButton) langButton.addEventListener("click", () => {
+    setLanguage(language === "en" ? "bn" : "en");
+  });
+
+  const scoreButton = document.getElementById("scoreBtn");
+  if (scoreButton) scoreButton.addEventListener("click", () => {
+    const answers = [0, 1, 2, 3].map(i =>
+      Number(document.getElementById("q" + i).value)
+    );
+    const result = document.getElementById("result");
+    if (answers.some(value => value < 1 || value > 5)) {
+      result.textContent = language === "en"
+        ? "Please answer all four questions first."
+        : "আগে চারটি প্রশ্নেরই উত্তর দিন।";
+      return;
+    }
+    const score = answers.reduce((sum, value) => sum + value, 0);
+    if (language === "en") {
+      result.textContent = score >= 17
+        ? "Your answers show a positive starting point. Keep practising and setting meaningful goals."
+        : score >= 11
+        ? "You have areas to build on. Choose one small, realistic action to practise this week."
+        : "Start gently: identify one area you want to improve and choose one manageable next step.";
+    } else {
+      result.textContent = score >= 17
+        ? "আপনার উত্তর ইতিবাচক শুরুর ইঙ্গিত দেয়। নিয়মিত অনুশীলন করুন এবং অর্থবহ লক্ষ্য নির্ধারণ করুন।"
+        : score >= 11
+        ? "আপনার উন্নতির কিছু জায়গা আছে। এই সপ্তাহে অনুশীলনের জন্য একটি ছোট বাস্তবসম্মত কাজ বেছে নিন।"
+        : "ধীরে শুরু করুন: উন্নতির একটি ক্ষেত্র বেছে নিয়ে ছোট একটি পদক্ষেপ নিন।";
+    }
+  });
+
+  if (language === "bn") setLanguage("bn");
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+  if (document.getElementById("questions")) renderQuestions();
+
+  if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+</script></body></html>
